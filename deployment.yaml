@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hello-python
-        image: hello-python:latest
+        image: vvrrao/hello-python:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
