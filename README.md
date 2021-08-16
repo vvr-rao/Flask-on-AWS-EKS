@@ -21,7 +21,7 @@ Use these two commands to verify that you have the correct configuration.
 ## Step 3 - Create an EKS Cluster with nodes.
 This is easy with eksctl. This is the command I used;
 <br>eksctl create cluster --name my-cluster3  --version 1.21 --region us-east-1 --nodegroup-name my-nodes --node-type t2.micro --nodes 2
-The above creates a cluster with 2 nodes. I plan to have a pod on each node. (refer the deployment.yaml)
+<br>The above creates a cluster with 2 nodes. I plan to have a pod on each node. (refer the deployment.yaml)
 
 It looks like the EKS cluster needs to sit in it's own VPC. eksctl creates the new VPC and takes care of subnet creation, security groups, roles tec. It also creates a CloudFormation template which is useful.
 
@@ -60,28 +60,28 @@ I set --> imagePullPolicy: IfNotPresent
 kubectl apply -f deployment.yaml
 
 use the below to check status of deployment
-kubectl get nodes
+<br>kubectl get nodes
 
 If you see an error, use this to delete the service and troubleshoot. This should delete the Pods.:
-kubectl delete -f deployment.yaml
+<br>kubectl delete -f deployment.yaml
 
 Note that I set replicas: 2 - so there will be 2 pods, one in each node
 
 ## Step 7 - View.
 Use the below to get the service.
-kubectl get svc
-That should get you the endpoint.
+<br>kubectl get svc
+<br>That should get you the endpoint.
 
 You can access the app by using
-curl http://<endpoint>:6000
+<br>curl http://<endpoint>:6000
   
 ## Step 8 - Cleanup
 To delete the cluster including the nodes and CloudFormation template use this
-eksctl delete cluster --region us-east-1 --name my-cluster2
+<br>eksctl delete cluster --region us-east-1 --name my-cluster2
   
 ## Other useful commands.
 To stop a node for troublesooting:
-  kubectl drain  <NODE_NAME> --ignore-daemonsets  --delete-emptydir-data 
+<br>kubectl drain  <NODE_NAME> --ignore-daemonsets  --delete-emptydir-data 
 
 To Make the node available again:
-  kubectl uncordon <NODE_NAME> 
+<br>kubectl uncordon <NODE_NAME> 
