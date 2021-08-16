@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hello-python
-        image: vvrrao2/hello-python:latest
+        image: YOUR_DOCKERHUB_USERNAME/hello-python:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
