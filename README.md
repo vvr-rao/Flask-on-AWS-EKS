@@ -13,50 +13,48 @@ I did all my development by spinning up a temporary EC2 linux instance. I needed
 You need to download the AWS Key and Secret from the console. Then use aws configure to set it up.
 
 Use these two commands to verify that you have the correct configuration.
-
-aws sts get-caller-identity
-
-aws sts get-session-token
+<br>aws sts get-caller-identity
+<br>aws sts get-session-token
 
 (wierdly, I tried this in Cloud9 and, for some reason, I could not configure the CLI and aws sts get-session-token was throwing me an error. I could not troubleshoot so switched to using a regular EC2 instance)
 
 ## Step 3 - Create an EKS Cluster with nodes.
 This is easy with eksctl. This is the command I used;
-eksctl create cluster --name my-cluster3  --version 1.21 --region us-east-1 --nodegroup-name my-nodes --node-type t2.micro --nodes 2
+<br>eksctl create cluster --name my-cluster3  --version 1.21 --region us-east-1 --nodegroup-name my-nodes --node-type t2.micro --nodes 2
 The above creates a cluster with 2 nodes. I plan to have a pod on each node. (refer the deployment.yaml)
 
 It looks like the EKS cluster needs to sit in it's own VPC. eksctl creates the new VPC and takes care of subnet creation, security groups, roles tec. It also creates a CloudFormation template which is useful.
 
 Use following command to verify that you can connect to the server.
-kubectl version --short
+<br>kubectl version --short
 
 can also use the below to verify the configuration
-kubectl config view
+<br>kubectl config view
 
 ## Step 4 - Create the Docker Image locally.
 I grabbed the code from here. This is a simple Hello World application https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/
-git clone https://github.com/vvr-rao/test-Flask-Kubernetes.git
-cd test-Flask-Kubernetes
-docker build -f Dockerfile -t hello-python:latest .
+<br>git clone https://github.com/vvr-rao/test-Flask-Kubernetes.git
+<br>cd test-Flask-Kubernetes
+<br>docker build -f Dockerfile -t hello-python:latest .
 
 use the below to verify:
-docker images
+<br>docker images
 
 use the below to test:
-docker run -p 5001:5000 hello-python
-curl http://localhost:5001/
+<br>docker run -p 5001:5000 hello-python
+<br>curl http://localhost:5001/
 
 ## Step 5 - Push the image to a repository. There are a couple of options - DockerHub and AWS ECR.
 
 ### For Dockerhub, commands are as follows:
-docker tag hello-python:latest <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
-docker push <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
+<br>docker tag hello-python:latest <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
+<br>docker push <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
 
 ### For ECR, 
 You can create a public repository in the console and them use the 'View Push Commands" to ge the correct commands.
 
-Whatever you choose, make sure to set it in the image: entry
-I set imagePullPolicy: IfNotPresent
+Whatever you choose, make sure to set it in the --> image: entry
+I set --> imagePullPolicy: IfNotPresent
 
 ## Step 6 - Deploy the App to EKS
 kubectl apply -f deployment.yaml
