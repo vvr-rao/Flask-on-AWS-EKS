@@ -51,18 +51,18 @@ use the below to test:
 <br>docker push <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
 
 ### For ECR, 
-You can create a public repository in the console and them use the 'View Push Commands" to ge the correct commands.
+You can create a public repository in the console and them use the 'View Push Commands" to get the correct commands.
 
-Whatever you choose, make sure to set it in the --> image: entry
-I set --> imagePullPolicy: IfNotPresent
+Whatever you choose, make sure to set it in the "image:"  entry
+<br>I also set to pull the image if it is not there --> imagePullPolicy: IfNotPresent
 
 ## Step 6 - Deploy the App to EKS
 kubectl apply -f deployment.yaml
 
 use the below to check status of deployment
-<br>kubectl get nodes
+<br>kubectl get pods
 
-If you see an error, use this to delete the service and troubleshoot. This should delete the Pods.:
+If you see an error, use this to delete the service and troubleshoot. This should delete the service and the pods.:
 <br>kubectl delete -f deployment.yaml
 
 Note that I set replicas: 2 - so there will be 2 pods, one in each node
