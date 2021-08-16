@@ -10,7 +10,7 @@ I did all my development by spinning up a temporary EC2 linux instance. I needed
 * eksctl - I found the link here: https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
 
 ## Step 2 - configure AWS CLI
-You need to download the AWS Key and Secret. Then use aws configure to set it up.
+You need to download the AWS Key and Secret from the console. Then use aws configure to set it up.
 
 Use these two commands to verify that you have the correct configuration.
 aws sts get-caller-identity
