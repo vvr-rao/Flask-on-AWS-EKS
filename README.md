@@ -44,7 +44,8 @@ use the below to test:
 <br>docker run -p 5001:5000 hello-python
 <br>curl http://localhost:5001/
 
-## Step 5 - Push the image to a repository. There are a couple of options - DockerHub and AWS ECR.
+## Step 5 - Push the image to a repository. 
+There are a couple of options - DockerHub and AWS ECR.
 
 ### For Dockerhub, commands are as follows:
 <br>docker tag hello-python:latest <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
