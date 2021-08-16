@@ -49,7 +49,7 @@ docker tag hello-python:latest <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
 docker push <YOUR_DOCKERHUB_USER_NAME>/hello-python:latest
 
 ### For ECR, 
-You can create a ublic repository in the console and them use the 'View Push Commands" to ge the correct commands.
+You can create a public repository in the console and them use the 'View Push Commands" to ge the correct commands.
 
 Whatever you choose, make sure to set it in the image: entry
 I set imagePullPolicy: IfNotPresent
