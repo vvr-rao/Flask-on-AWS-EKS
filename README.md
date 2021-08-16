@@ -16,7 +16,7 @@ Use these two commands to verify that you have the correct configuration.
 <br>aws sts get-caller-identity
 <br>aws sts get-session-token
 
-(wierdly, I tried this in Cloud9 and, for some reason, I could not configure the CLI and aws sts get-session-token was throwing me an error. I could not troubleshoot so switched to using a regular EC2 instance)
+(wierdly, I tried this in Cloud9 and, for some reason, I could not configure the CLI and aws sts get-session-token was throwing me an error. I could not troubleshoot so switched to using a regular EC2 instance for my development)
 
 ## Step 3 - Create an EKS Cluster with nodes.
 This is easy with eksctl. This is the command I used;
