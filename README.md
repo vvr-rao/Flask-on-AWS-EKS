@@ -74,7 +74,7 @@ Use the below to get the service.
 <br>That should get you the endpoint.
 
 You can access the app by using
-<br>curl http://<ENDPOINT FROM ABOVE>:6000
+<br>curl ENDPOINT-FROM-ABOVE:6000
   
 ## Step 8 - Cleanup
 To delete the cluster including the nodes and CloudFormation template use this
