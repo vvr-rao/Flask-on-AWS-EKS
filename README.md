@@ -13,8 +13,12 @@ I did all my development by spinning up a temporary EC2 linux instance. I needed
 You need to download the AWS Key and Secret from the console. Then use aws configure to set it up.
 
 Use these two commands to verify that you have the correct configuration.
+
 aws sts get-caller-identity
+
 aws sts get-session-token
+
+(wierdly, I tried this in Cloud9 and, for some reason, I could not configure the CLI and aws sts get-session-token was throwing me an error. I could not troubleshoot so switched to using a regular EC2 instance)
 
 ## Step 3 - Create an EKS Cluster with nodes.
 This is easy with eksctl. This is the command I used;
