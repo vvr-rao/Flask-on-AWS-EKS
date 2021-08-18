@@ -69,12 +69,14 @@ If you see an error, use this to delete the service and troubleshoot. This shoul
 Note that I set replicas: 2 - so there will be 2 pods, one in each node
 
 ## Step 7 - View.
-Use the below to get the service.
+Use the below to get the service. Also, the Service type: LoadBalancer creates an ELB which should be visible in the AWS controller.
+To have kubernetes create an ALB, you need to use an Ingres controller
 <br>kubectl get svc
-<br>That should get you the endpoint.
+<br>That should get you the endpoint (under EXTERNAL IP)
 
 You can access the app by using
-<br>curl ENDPOINT-FROM-ABOVE:6000
+<br>curl ENDPOINT-FROM-ABOVE
+<br>or simply navigate to the endpoint in the browser
   
 ## Step 8 - Cleanup
 To delete the cluster including the nodes and CloudFormation template use this
