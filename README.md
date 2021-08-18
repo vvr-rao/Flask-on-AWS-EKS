@@ -33,7 +33,7 @@ can also use the below to verify the configuration
 
 ## Step 4 - Create the Docker Image locally.
 I grabbed the code from here. This is a simple Hello World application https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/
-<br>git clone https://github.com/vvr-rao/test-Flask-Kubernetes.git
+<br>git clone https://github.com/vvr-rao/Flask-on-AWS-EKS.git
 <br>cd test-Flask-Kubernetes
 <br>docker build -f Dockerfile -t hello-python:latest .
 
