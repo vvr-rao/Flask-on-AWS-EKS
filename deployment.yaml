@@ -3,7 +3,10 @@ kind: Service
 metadata:
   name: hello-python-service
   annotations:
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
     service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy: "ELBSecurityPolicy-TLS-1-2-2017-01"
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+    
 spec:
   selector:
     app: hello-python
