@@ -3,6 +3,8 @@
 Had started with the Kubernetes tutorial over here https://kubernetes.io/blog/2019/07/23/get-started-with-kubernetes-using-python/.
 The example talks about deploying a simple Flask app into Docker Desktop. I felt AWS EKS is superior.
 
+This is a simple Hello word app. For a more substantial deployment check out my other repositoty here: https://github.com/vvr-rao/NLP-on-AWS-EKS
+
 ## Step 1 - Installations.
 I did all my development by spinning up a temporary EC2 linux instance. I needed to install 
 * AWS CLI
